@@ -1,0 +1,52 @@
+.root {
+  width: 100vw;
+  height: 100vh;
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    > div {
+      margin: 20px 0;
+    }
+    .logo {
+      width: 200px;
+      height: 200px;
+      margin: 50px 0;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .title {
+      font-size: 20px;
+      font-weight: bold;
+    }
+    .tips,
+    .technology {
+      font-size: 16px;
+    }
+    .actions {
+      width: 200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 24px;
+      .item {
+        margin: 0 10px;
+        width: 25%;
+        cursor: pointer;
+        text-align: center;
+        &:hover {
+          color: #fc5531;
+        }
+      }
+    }
+    .copyright {
+      position: fixed;
+      bottom: 0;
+    }
+  }
+}
