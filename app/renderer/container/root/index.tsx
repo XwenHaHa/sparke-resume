@@ -8,7 +8,6 @@ import Logo from '@/assets/logo.jpeg';
 
 function Root() {
   const histroy = useHistory();
-
   const onRouterLink = (router: TSRouter.Item) => {
     if (isHttpOrHttpsUrl(router.url)) {
       shell.openExternal(router.url);
