@@ -1,4 +1,4 @@
-import { createUID } from '@common/utils';
+import { createUID } from '@/common/utils';
 
 class FileEvent {
   public uuid: string;
