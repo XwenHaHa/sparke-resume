@@ -1,13 +1,23 @@
 import React from 'react';
 import './index.less';
-import SparkeInput from '@/src/common/components/SparkeInput';
-import ImageUpload from '@/src/common/components/SparkeUpload/ImageUpload';
+import ResumeAction from './ResumeAction';
+import ResumeContent from './ResumeContent';
+import ResumeToolbar from './ResumeToolbar';
 
 function Resume() {
   return (
-    <div>
-      <SparkeInput value={2} />
-      <ImageUpload />
+    <div styleName="container">
+      <div styleName="header">
+        <ResumeAction />
+      </div>
+      <div styleName="main">
+        <div styleName="content">
+          <ResumeContent />
+        </div>
+        <div styleName="toolbar">
+          <ResumeToolbar />
+        </div>
+      </div>
     </div>
   );
 }
