@@ -4,7 +4,7 @@ import { useHistory } from 'react-router';
 import { shell } from 'electron';
 import { ROUTER_ENTRY } from '@/common/constants/router';
 import { isHttpOrHttpsUrl } from '@/common/utils/router';
-import Logo from '@/assets/logo.jpeg';
+import Logo from '@/assets/logo.png';
 
 function Root() {
   const histroy = useHistory();

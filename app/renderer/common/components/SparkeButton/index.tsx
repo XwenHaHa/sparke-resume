@@ -35,9 +35,23 @@ export interface Button {
    * 是否显示边框
    */
   border?: boolean;
+  /**
+   * 按钮形状，圆形或方形
+   */
+  shape?: 'rounded' | 'square';
 }
 
-function SparkeButton({ size = 'small', style, width, children, disabled, className, onClick, border = true }: Button) {
+function SparkeButton({
+  size = 'small',
+  style,
+  width,
+  children,
+  disabled,
+  className,
+  onClick,
+  border = true,
+  shape = 'square',
+}: Button) {
   return (
     <div
       style={{ ...style, width: width }}
@@ -46,6 +60,7 @@ function SparkeButton({ size = 'small', style, width, children, disabled, classN
         [`es-button-${size}`]: true,
         'es-button-disabled': disabled,
         'es-button-border': border,
+        'es-button-rounded': shape === 'rounded', // 圆形
       })}
       onClick={() => {
         onClick && onClick();

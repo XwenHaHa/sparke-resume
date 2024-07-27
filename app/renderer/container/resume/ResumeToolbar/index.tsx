@@ -7,12 +7,12 @@ function ResumeToolbar() {
   const height = document.body.clientHeight;
   return (
     <div styleName="slider">
+      <div styleName="title">
+        <span styleName="line" />
+        全部模块
+      </div>
       <SparkeScrollBox maxHeight={height - 180}>
         <div styleName="module">
-          <div styleName="title">
-            <span styleName="line" />
-            全部模块
-          </div>
           <div styleName="content">
             {RESUME_TOOLBAR_LIST.map((toolbar: TSResume.SliderItem) => {
               return (

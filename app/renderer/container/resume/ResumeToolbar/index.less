@@ -1,36 +1,37 @@
 .slider {
-  width: 280px;
+  width: 100%;
   font-size: 14px;
   box-sizing: border-box;
   background-color: #fff;
   border-radius: 6px;
   padding: 16px;
+  .title {
+    font-size: 14px;
+    line-height: 22px;
+    color: #505667;
+    position: relative;
+    padding-left: 12px;
+    margin-bottom: 16px;
+    &.un-first {
+      margin-top: 24px;
+    }
+    .line {
+      position: absolute;
+      top: 4px;
+      left: 0;
+      width: 3px;
+      background-color: rgb(39, 41, 44);
+      height: 14px;
+    }
+  }
   .module {
     font-size: 14px;
-    .title {
-      font-size: 14px;
-      line-height: 22px;
-      color: #505667;
-      position: relative;
-      padding-left: 12px;
-      margin-bottom: 16px;
-      &.un-first {
-        margin-top: 24px;
-      }
-      .line {
-        position: absolute;
-        top: 4px;
-        left: 0;
-        width: 3px;
-        background-color: rgb(39, 41, 44);
-        height: 14px;
-      }
-    }
+
     .content {
       .box {
         height: 72px;
         margin-bottom: 12px;
-        background-color: #fbfbfb;
+        background-color: #f5f6fa;
         display: flex;
         justify-content: flex-start;
         align-items: center;
