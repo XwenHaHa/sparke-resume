@@ -16,7 +16,7 @@ const RESUME_TOOLBAR_LIST: TSResume.SliderItem[] = [
     key: RESUME_TOOLBAR_MAPS.personal,
     name: '个人信息',
     summary: '好好介绍自己，让对方了解你',
-    require: false,
+    require: true,
   },
   {
     key: RESUME_TOOLBAR_MAPS.education,
@@ -64,11 +64,13 @@ const RESUME_TOOLBAR_LIST: TSResume.SliderItem[] = [
     key: RESUME_TOOLBAR_MAPS.evaluation,
     name: '自我评价',
     summary: '对自己做一个自我评价',
+    require: false,
   },
   {
     key: RESUME_TOOLBAR_MAPS.skill,
     name: '技能清单',
     summary: '展示你擅长的技能，凸显你的个人能力',
+    require: false,
   },
 ];
 
