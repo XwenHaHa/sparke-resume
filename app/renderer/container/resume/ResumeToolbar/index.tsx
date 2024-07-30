@@ -5,7 +5,6 @@ import RESUME_TOOLBAR_LIST from '@/src/common/constants/resume';
 import { onAddToolbar, onDeleteToolbar } from './utils';
 
 function ResumeToolbar() {
-  const height = document.body.clientHeight;
   // 定义已添加、未添加模块
   const [addToolbarList, setAddToolbarList] = useState<TSResume.SliderItem[]>([]);
   const [unAddToolbarList, setUnAddToolbarList] = useState<TSResume.SliderItem[]>([]);
@@ -38,14 +37,16 @@ function ResumeToolbar() {
     const nextUnAddToolbarList = onAddToolbar(unAddToolbarList, toolbarItem);
     setUnAddToolbarList(nextUnAddToolbarList);
   };
+  const TOOLBAR_ACTION_HEIGHT = 102;
+  const toolbarHeight = document.querySelector('.slider')?.clientHeight;
   return (
-    <div styleName="slider">
+    <div styleName="slider" className="slider">
       <div styleName="addToolbar">
         <div styleName="title">
           <span styleName="line" />
           已添加模块
         </div>
-        <SparkeScrollBox>
+        <SparkeScrollBox maxHeight={(toolbarHeight! - TOOLBAR_ACTION_HEIGHT) / 2}>
           {addToolbarList.length > 0 && (
             <div styleName="module">
               <div styleName="content">
@@ -85,7 +86,7 @@ function ResumeToolbar() {
           <span styleName="line" />
           未添加模块
         </div>
-        <SparkeScrollBox>
+        <SparkeScrollBox maxHeight={(toolbarHeight! - TOOLBAR_ACTION_HEIGHT) / 2}>
           {unAddToolbarList.length > 0 && (
             <div styleName="module">
               <div styleName="content">

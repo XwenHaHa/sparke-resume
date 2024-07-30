@@ -7,11 +7,9 @@ function ResumeContent() {
   const HEAD_ACTION_HEIGHT = 92;
   const height = document.body.clientHeight;
   return (
-    <div styleName="resumeBox">
-      <SparkeScrollBox maxHeight={height - HEAD_ACTION_HEIGHT}>
-        <UseTemplateList.TemplateOne />
-      </SparkeScrollBox>
-    </div>
+    <SparkeScrollBox maxHeight={height - HEAD_ACTION_HEIGHT}>
+      <UseTemplateList.TemplateOne />
+    </SparkeScrollBox>
   );
 }
 
