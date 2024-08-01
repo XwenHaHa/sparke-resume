@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { setToolbarKeys } from '@/src/store/features/templateModel';
 import './index.less';
 import SparkeScrollBox from '@/src/common/components/SparkeScrollBox';
 import RESUME_TOOLBAR_LIST from '@/src/common/constants/resume';
@@ -8,7 +10,7 @@ function ResumeToolbar() {
   // 定义已添加、未添加模块
   const [addToolbarList, setAddToolbarList] = useState<TSResume.SliderItem[]>([]);
   const [unAddToolbarList, setUnAddToolbarList] = useState<TSResume.SliderItem[]>([]);
-
+  const dispatch = useDispatch();
   useEffect(() => {
     if (RESUME_TOOLBAR_LIST.length > 0) {
       let _addToolbarList: TSResume.SliderItem[] = [];
@@ -19,8 +21,15 @@ function ResumeToolbar() {
       });
       setAddToolbarList(_addToolbarList);
       setUnAddToolbarList(_unAddToolbarList);
+      changeResumeToolbarKeys(_addToolbarList.map((s: TSResume.SliderItem) => s.key));
     }
   }, []);
+
+  const changeResumeToolbarKeys = (moduleKeys: string[]) => {
+    if (moduleKeys.length > 0) {
+      dispatch(setToolbarKeys(moduleKeys));
+    }
+  };
 
   // 添加模块
   const onAddSliderAction = (toolbarItem: TSResume.SliderItem) => {
@@ -28,6 +37,7 @@ function ResumeToolbar() {
     setAddToolbarList(nextAddToolbarList);
     const nextUnAddToolbarList = onDeleteToolbar(unAddToolbarList, toolbarItem);
     setUnAddToolbarList(nextUnAddToolbarList);
+    changeResumeToolbarKeys(nextAddToolbarList.map((s: TSResume.SliderItem) => s.key));
   };
 
   // 删除模块
@@ -36,8 +46,9 @@ function ResumeToolbar() {
     setAddToolbarList(nextAddToolbarList);
     const nextUnAddToolbarList = onAddToolbar(unAddToolbarList, toolbarItem);
     setUnAddToolbarList(nextUnAddToolbarList);
+    changeResumeToolbarKeys(nextAddToolbarList.map((s: TSResume.SliderItem) => s.key));
   };
-  const TOOLBAR_ACTION_HEIGHT = 102;
+  const TOOLBAR_ACTION_HEIGHT = 108;
   const toolbarHeight = document.querySelector('.slider')?.clientHeight;
   return (
     <div styleName="slider" className="slider">
