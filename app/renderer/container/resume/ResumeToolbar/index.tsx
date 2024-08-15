@@ -5,6 +5,7 @@ import './index.less';
 import SparkeScrollBox from '@/src/common/components/SparkeScrollBox';
 import RESUME_TOOLBAR_LIST from '@/src/common/constants/resume';
 import { onAddToolbar, onDeleteToolbar } from './utils';
+import Messager, { MESSAGE_EVENT_NAME_MAPS } from '@/common/messager';
 
 function ResumeToolbar() {
   // 定义已添加、未添加模块
@@ -63,7 +64,16 @@ function ResumeToolbar() {
               <div styleName="content">
                 {addToolbarList.map((addToolbar: TSResume.SliderItem) => {
                   return (
-                    <div styleName="box" key={addToolbar.key}>
+                    <div
+                      styleName="box"
+                      key={addToolbar.key}
+                      onClick={() => {
+                        // 事件发送
+                        Messager.send(MESSAGE_EVENT_NAME_MAPS.OPEN_FORM_MODAL, {
+                          form_name: addToolbar.key,
+                        });
+                      }}
+                    >
                       <div styleName="info">
                         <i styleName="icon"></i>
                         <div styleName="text">
