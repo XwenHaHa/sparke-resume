@@ -11,7 +11,7 @@ interface IProps {
   onClose: () => void;
 }
 function Work({ onClose }: IProps) {
-  const work: TSResume.Work = useSelector((state: any) => state.resumeModel.work);
+  const work: TSResume.Work = useSelector((state: any) => state.resume.work);
   return (
     <SparkeModal.Dialog
       title="工作期望"
