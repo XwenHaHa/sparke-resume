@@ -150,7 +150,14 @@ const initialState: ResumeState = {
 export const resumeModel = createSlice({
   name: 'resume',
   initialState,
-  reducers: {},
+  reducers: {
+    setStore: (state: any, { payload }) => {
+      const { key, values } = payload;
+      state[key] = values;
+    },
+  },
 });
+
+export const { setStore } = resumeModel.actions;
 
 export default resumeModel.reducer;
