@@ -1,6 +1,6 @@
 /**
  * @desc 工作经历
- * @author pengdaokuan
+ * @author
  */
 import './index.less';
 import React from 'react';

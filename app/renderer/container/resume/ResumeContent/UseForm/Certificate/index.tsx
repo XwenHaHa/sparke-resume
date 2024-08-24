@@ -6,6 +6,7 @@ import './index.less';
 import SparkeModal from '@/src/common/components/SparkeModal';
 import SparkeInput from '@/src/common/components/SparkeInput';
 import { useSelector } from 'react-redux';
+import useUpdateResumeHook from '@/src/container/resume/ResumeContent/useUpdateResumeHook';
 
 interface IProps {
   onClose: () => void;
@@ -13,6 +14,7 @@ interface IProps {
 
 function Certificate({ onClose }: IProps) {
   const certificate: string = useSelector((state: any) => state.resume.certificate);
+  const updateResumeHook = useUpdateResumeHook();
   return (
     <SparkeModal.Dialog
       title="荣誉证书"
@@ -31,7 +33,9 @@ function Certificate({ onClose }: IProps) {
           <div styleName="right">
             <SparkeInput
               type="textarea"
-              onChange={(e) => {}}
+              onChange={(e) => {
+                updateResumeHook<string>('certificate', e.target.value);
+              }}
               rows={5}
               value={certificate || ''}
               placeholder="请输入你获得过的证书名称"
